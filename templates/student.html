@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <div class="container-form">
+        <form action="http://localhost:5000/" method="POST" class="form-wrap">
+            <div class="form-wrap-row">
+                <label for="name">Name</label>
+                <input class="int" type="text" name="Name" id="name" required>
+            </div>
+            <div class="form-wrap-row">
+                <label for="name">Physics</label>
+                <input class="int" type="text" name="Physics" id="Physics" required>
+            </div>
+            <div class="form-wrap-row">
+                <label for="name">Chemistry</label>
+                <input class="int" type="text" name="Chemistry" id="Chemistry" required>
+            </div>
+            <div class="form-wrap-row">
+                <label for="name">Maths</label>
+                <input class="int" type="text" name="Maths" id="Maths" required>
+            </div>
+            <input class="btn" type="submit" value="submit" />
+        </form>
+    </div>
+
+    <div class="container-output">
+        <p>{{output}}</p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Physics</th>
+                    <th>Chemistry</th>
+                    <th>Maths</th>
+
+                </tr>
+            </thead>
+            {% for i in data %}
+            <tbody>
+                <tr>
+                    <td>{{i["name"]}}</td>
+                    <td>{{i["physics"]}}</td>
+                    <td>{{i["chemistry"]}}</td>
+                    <td>{{i["maths"]}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
